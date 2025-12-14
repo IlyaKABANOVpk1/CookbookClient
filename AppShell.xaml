@@ -7,9 +7,13 @@
     Shell.FlyoutBehavior="Disabled"
     Title="CookbookClient">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent Route="LoginPage"
+                  ContentTemplate="{DataTemplate local:LoginPage}" />
+
+    <ShellContent Route="RegisterPage"
+                  ContentTemplate="{DataTemplate local:RegisterPage}" />
+
+    <ShellContent Route="MainPage"
+                  ContentTemplate="{DataTemplate local:MainPage}" />
 
 </Shell>

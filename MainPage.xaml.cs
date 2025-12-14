@@ -2,23 +2,24 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnCategoriesClicked(object sender, EventArgs e)
+            => await Shell.Current.GoToAsync("CategoriesPage");
+
+        private async void OnIngredientsClicked(object sender, EventArgs e)
+            => await Shell.Current.GoToAsync("IngredientsPage");
+
+        private async void OnRecipesClicked(object sender, EventArgs e)
+            => await Shell.Current.GoToAsync("RecipesPage");
+
+        private async void OnLogoutClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            SecureStorage.Remove("token");
+            await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 
