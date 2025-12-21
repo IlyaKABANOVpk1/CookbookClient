@@ -16,4 +16,15 @@
     <ShellContent Route="MainPage"
                   ContentTemplate="{DataTemplate local:MainPage}" />
 
+    <ShellContent Route="CategoriesPage"
+                  ContentTemplate="{DataTemplate local:CategoriesPage}"/>
+
+    <ShellContent Route="CategoryEditPage"
+                  ContentTemplate="{DataTemplate local:CategoryEditPage}" />
+
+    <ShellContent  Title="Ингредиенты" Route="IngredientsPage"
+    ContentTemplate="{DataTemplate local:IngredientsPage}" />
+    <ShellContent  Title="Ингредиенты" Route="IngredientsPage"
+ContentTemplate="{DataTemplate local:IngredientEditPage}" />
+
 </Shell>

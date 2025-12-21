@@ -8,13 +8,13 @@
         }
 
         private async void OnCategoriesClicked(object sender, EventArgs e)
-            => await Shell.Current.GoToAsync("CategoriesPage");
+            => await Shell.Current.GoToAsync("///CategoriesPage");
 
         private async void OnIngredientsClicked(object sender, EventArgs e)
-            => await Shell.Current.GoToAsync("IngredientsPage");
+            => await Shell.Current.GoToAsync("///IngredientsPage");
 
         private async void OnRecipesClicked(object sender, EventArgs e)
-            => await Shell.Current.GoToAsync("RecipesPage");
+            => await Shell.Current.GoToAsync("///RecipesPage");
 
         private async void OnLogoutClicked(object sender, EventArgs e)
         {

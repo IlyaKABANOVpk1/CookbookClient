@@ -17,7 +17,7 @@
                 Command="{Binding LoginCommand}" />
 
         <Button Text="Регистрация"
-                Command="{Binding RegisterCommand}"
+                Clicked="OnRegisterClicked"
                 BackgroundColor="Transparent"
                 TextColor="Blue"/>
 

@@ -66,6 +66,12 @@
 	  <MauiXaml Update="CategoriesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="CategoryEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="IngredientEditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="IngredientsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

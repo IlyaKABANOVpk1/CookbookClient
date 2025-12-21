@@ -19,7 +19,11 @@ namespace CookbookClient
                 });
 
             builder.Services.AddSingleton<ApiClient>();
+
             builder.Services.AddSingleton<AuthService>();
+            builder.Services.AddSingleton<CategoryService>();
+            builder.Services.AddSingleton<CategoriesViewModel>();
+
 
             builder.Services.AddSingleton<AuthViewModel>();
 
@@ -28,7 +32,13 @@ namespace CookbookClient
             builder.Services.AddSingleton<MainPage>();
 
             builder.Services.AddTransient<CategoriesPage>();
+            builder.Services.AddTransient<CategoryEditPage>();
+            builder.Services.AddTransient<IngredientService>();
+            builder.Services.AddTransient<IngredientsViewModel>();
             builder.Services.AddTransient<IngredientsPage>();
+
+            builder.Services.AddTransient<IngredientEditViewModel>();
+            builder.Services.AddTransient<IngredientEditPage>();
             builder.Services.AddTransient<RecipesPage>();
 
 #if DEBUG
