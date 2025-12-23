@@ -10,16 +10,16 @@
                FontSize="22"
                HorizontalOptions="Center" />
 
-        <Button Text="📂 Категории"
+        <Button Text=" Категории"
                 Clicked="OnCategoriesClicked" />
 
-        <Button Text="🧂 Ингредиенты"
+        <Button Text=" Ингредиенты"
                 Clicked="OnIngredientsClicked" />
 
-        <Button Text="🍲 Рецепты"
+        <Button Text=" Рецепты"
                 Clicked="OnRecipesClicked" />
 
-        <Button Text="🚪 Выйти"
+        <Button Text=" Выйти"
                 Clicked="OnLogoutClicked"
                 TextColor="Red"/>
 

@@ -2,11 +2,76 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CookbookClient.RecipesPage"
-             Title="RecipesPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Рецепты">
+
+    <Grid RowDefinitions="Auto, Auto, *">
+        <Button Grid.Row="0" 
+            Text="← В главное меню" 
+            Clicked="OnBackClicked"
+            BackgroundColor="Transparent"
+            TextColor="#007ACC"
+            HorizontalOptions="Start"
+            Margin="10,0"/>
+
+        <Button Grid.Row="1"
+                Text="Добавить рецепт"
+                Clicked="OnAddRecipeClicked"
+                Margin="10"
+                HeightRequest="50"/>
+
+        <SearchBar Grid.Row="2"
+                   Placeholder="Поиск рецептов"
+                   Text="{Binding SearchText}"
+                   Margin="10,0"/>
+
+        <CollectionView Grid.Row="3"
+                        ItemsSource="{Binding Recipes}"
+                        SelectionMode="None"
+                        Margin="10">
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Рецептов пока нет" 
+                           FontSize="20" 
+                           TextColor="Gray" 
+                           HorizontalTextAlignment="Center"/>
+                    <Label Text="Нажмите кнопку сверху, чтобы добавить" 
+                           TextColor="LightGray" 
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0,5">
+                        <Frame CornerRadius="10"
+                               BorderColor="LightGray"
+                               Padding="15"
+                               HasShadow="True">
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRecipeTapped" 
+                                                      CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"/>
+
+                                <Label Text="{Binding CategoryName, StringFormat='Категория: {0}'}"
+                                       FontSize="14"
+                                       TextColor="Gray"/>
+
+                                <Label Text="Нажмите для просмотра подробностей..."
+                                       FontSize="12"
+                                       TextColor="#007ACC"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

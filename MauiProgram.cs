@@ -23,6 +23,7 @@ namespace CookbookClient
             builder.Services.AddSingleton<AuthService>();
             builder.Services.AddSingleton<CategoryService>();
             builder.Services.AddSingleton<CategoriesViewModel>();
+            builder.Services.AddSingleton<AuthStateService>();
 
 
             builder.Services.AddSingleton<AuthViewModel>();
@@ -39,7 +40,12 @@ namespace CookbookClient
 
             builder.Services.AddTransient<IngredientEditViewModel>();
             builder.Services.AddTransient<IngredientEditPage>();
+            builder.Services.AddTransient<RecipeService>();
+            builder.Services.AddTransient<RecipesViewModel>();
             builder.Services.AddTransient<RecipesPage>();
+
+            builder.Services.AddTransient<RecipeEditViewModel>();
+            builder.Services.AddTransient<RecipeEditPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

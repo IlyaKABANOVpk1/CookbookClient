@@ -4,41 +4,39 @@
              x:Class="CookbookClient.CategoriesPage"
              Title="Категории">
 
+    <Grid RowDefinitions="Auto, Auto, *">
+        <Button Grid.Row="0" Text="← В главное меню" Clicked="OnBackClicked"
+                BackgroundColor="Transparent" TextColor="#007ACC" HorizontalOptions="Start" Margin="10,5"/>
 
+        <Button Grid.Row="1" Text="Добавить категорию" Command="{Binding CreateCommand}"
+                Margin="10" HeightRequest="45" BackgroundColor="#512BD4" TextColor="White"/>
 
-    <Grid RowDefinitions="Auto,*">
-
-        <Button Text="Добавить категорию"
-                Command="{Binding CreateCommand}"
-                Margin="10" />
-
-        <CollectionView Grid.Row="1"
-                        ItemsSource="{Binding Categories}"
-                        SelectionMode="Single"
-                        SelectionChangedCommand="{Binding SelectCommand}"
-                        x:Name="CategoriesList">
-
+        <CollectionView Grid.Row="2" ItemsSource="{Binding Categories}" SelectionMode="None" x:Name="CategoriesList" Margin="5">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems Mode="Reveal">
-                                <SwipeItem Text="Удалить"
-                                           BackgroundColor="Red"
+                                <SwipeItem Text="Удалить" BackgroundColor="Red"
                                            Command="{Binding BindingContext.DeleteCommand, Source={x:Reference CategoriesList}}"
                                            CommandParameter="{Binding .}" />
                             </SwipeItems>
                         </SwipeView.RightItems>
 
-                        <Grid Padding="12">
-                            <Label Text="{Binding Name}"
-                                   FontSize="18" />
-                        </Grid>
+                        <Frame Margin="5" Padding="15" CornerRadius="10" BorderColor="#EEEEEE" HasShadow="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectCommand, Source={x:Reference CategoriesList}}"
+                                                      CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="Нажмите для редактирования..." FontSize="12" TextColor="#007ACC" />
+                            </VerticalStackLayout>
+                        </Frame>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-
         </CollectionView>
-
     </Grid>
 </ContentPage>

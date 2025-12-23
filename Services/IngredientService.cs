@@ -17,11 +17,13 @@ namespace CookbookClient.Services
             _api = api;
         }
 
+
+       
         public async Task<List<IngredientDto>> GetAllAsync()
-            => await _api.Client.GetFromJsonAsync<List<IngredientDto>>("api/ingredient");
+            => await _api.Client.GetFromJsonAsync<List<IngredientDto>>("api/Ingredient");
 
         public async Task<IngredientDto> GetByIdAsync(int id)
-            => await _api.Client.GetFromJsonAsync<IngredientDto>($"api/ingredient/{id}");
+            => await _api.Client.GetFromJsonAsync<IngredientDto>($"api/Ingredient/{id}");
 
         public async Task<IngredientDto> CreateAsync(IngredientDto dto)
         {
